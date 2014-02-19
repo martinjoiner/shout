@@ -78,6 +78,36 @@ var populateArrAllEmotions = (function(){
 	});
 })();
 
+var populateInfoContent = (function(){
+
+	var html = '<h1>Shout</h1><p>Totally random audience suggestions can help push the improvisers skills during rehearsals. I built this little web app to keep you supplied with fresh inputs, while maintaining the flow of the session. You could also use this if the audience seem to be suggesting ideas influenced by what has gone before. Enjoy! Martin Joiner</p>';
+	var cnt = 0;
+
+	objData['keys'].forEach( function(thisKey){
+
+		html += '<h2>All ' + thisKey + 's</h2><p>';
+		cnt = 0;
+
+		objData[ 'arr' + thisKey ].forEach( function(thisThing){
+			if( cnt++ > 0 ){
+				html += ', ';
+			}
+			if( typeof thisThing === 'object' ){
+				html += thisThing['name'];
+			} else {
+				html += thisThing;
+			}
+
+		});
+		
+		html += '</p>';
+
+	});
+
+	$('.infoContent').html( html );
+
+})();
+
 /**
  * Returns a random integer between min and max
  * Using Math.round() will give you a non-uniform distribution!
@@ -110,6 +140,11 @@ $('#btnGenerate').click( function(){
 	});
 	
 	$('#result').html( html ).attr('class',cssClass);
+	$('#infoCurtain').removeClass('expanded');
+});
+
+$('.logo').click( function(){
+	$('#infoCurtain').toggleClass('expanded');
 });
 
 $('#btnGenerate').click();

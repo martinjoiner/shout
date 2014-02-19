@@ -1,6 +1,8 @@
 
 html, body{
 	height: 100%;
+	font-size: 12px;
+	color: #333;
 }
 
 body{
@@ -29,20 +31,72 @@ body{
 	clear: left;
 	width: 100%;
 	text-align: center;
-	font-size: 0.8em;
+	font-size: 0.9em;
 	text-shadow: 0 -1px 0 rgba(255,255,255,0.4);
 	color: #333;
 }
 
-#btnGenerate, #result{
+h1, #btnGenerate, #result{
 	font-family: 'Bangers', cursive;
 }
 
-#result, .optionsWrap, .options, .buttonWrap, #btnGenerate{
+.info, #infoCurtain, #result, .optionsWrap, .options, .buttonWrap, #btnGenerate{
 	position: absolute;
 	display: block;
 	width: 100%;
 	left: 0;
+}
+
+.info{
+	width: 50%;
+	left: 50%;
+	top: 62%;
+	height: 5%;
+}
+
+.logo{
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	left: -30px;
+	opacity: 0.7;
+	bottom: 0;
+	z-index: 100;
+}
+
+#infoCurtain{
+	top: 0;
+	bottom: 0;
+	height: 0%;
+	overflow: auto;
+	background-color: #FFF;
+
+	-webkit-transition: height .2s;
+	   -moz-transition: height .2s;
+			transition: height .2s;
+}
+
+#infoCurtain.expanded{
+	height: 67%;
+}
+
+#infoCurtain .infoContent{
+	padding: 1em 1em 5em 1em;
+	line-height: 1.6em;
+}
+
+h1{
+	margin: .4em 0 .6em 0;
+	text-align: center;
+	font-size: 3em;
+}
+
+h2{
+	margin: 0 0 0.5em;
+}
+
+p{
+	margin: 0 0 1em 0;
 }
 
 #result{
@@ -50,7 +104,7 @@ body{
 	left: 0;
 	width: 100%;
 	height: 67%;
-	font-size: 3em;
+	font-size: 4.2em;
 	line-height: 1.6em;
 	text-align: center;
 	overflow: auto;
@@ -125,9 +179,9 @@ body{
 
 	width: 92%;
 	margin: 0 auto;
-	font-size: 3em;
+	font-size: 3.8em;
 	height: 10%;
-	line-height: 1.2em;
+	line-height: 1em;
 }
 
 #btnGenerate:active{
