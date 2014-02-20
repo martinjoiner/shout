@@ -108,6 +108,12 @@ p{
 	line-height: 1.6em;
 	text-align: center;
 	overflow: auto;
+	opacity: 1;
+	transition: opacity .2s;
+}
+
+#result.invisible{
+	opacity: 0;
 }
 
 .optionsWrap, .buttonWrap{

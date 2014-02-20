@@ -171,12 +171,25 @@ $('#btnGenerate').click( function(){
 	}
 	
 	$('#result').html( html ).attr('class',cssClass);
-	$('#infoCurtain').removeClass('expanded');
+	curtainUp();
 });
 
 $('.logo').click( function(){
-	$('#infoCurtain').toggleClass('expanded');
+	if( $('#infoCurtain').hasClass('expanded') ){
+		curtainUp();
+	} else {
+		curtainDown();
+	}
 });
+
+function curtainUp(){
+	$('#infoCurtain').removeClass('expanded');
+	$('#result').removeClass('invisible');
+}
+function curtainDown(){
+	$('#infoCurtain').addClass('expanded');
+	$('#result').addClass('invisible');
+}
 
 $('#btnGenerate').click();
 
