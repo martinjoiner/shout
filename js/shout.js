@@ -66,7 +66,7 @@ objData['arrPlace'] 		= 	[ 	'Swimming Pool', 'Park', 'Beach', 'Office', 'Butcher
 objData['arrVerb'] 			= 	[ 	'Judging', 'Seeking', 'Navigating', 'Peeling', 'Digging', 'Polishing' ];
 
 
-var populateArrAllEmotions = (function(){
+var populateCompleteListArrays = (function(){
 	var cnt = 0;
 	arrEmoCats.forEach( function(thisCat){
 		thisCat.arrEmotions.forEach( function(thisEmotion){
@@ -76,11 +76,36 @@ var populateArrAllEmotions = (function(){
 			cnt++;
 		});
 	});
+
+	cnt = 0;
+	objData['arrNouns'] = [];
+	for (var cc = 97; cc <= 122; cc++) {
+		thisArr = noun[ String.fromCharCode(cc) ];
+		if( typeof thisArr != 'undefined' ){
+			//console.log(noun[ thisChar ]);
+			thisArr.forEach( function(thisNoun){
+				objData['arrNouns'][cnt++] = thisNoun;
+			});
+		}
+	}
+
+	cnt = 0;
+	objData['arrAdjectives'] = [];
+	for (var cc = 97; cc <= 122; cc++) {
+		thisArr = adj[ String.fromCharCode(cc) ];
+		if( typeof thisArr != 'undefined' ){
+			//console.log(noun[ thisChar ]);
+			thisArr.forEach( function(thisNoun){
+				objData['arrAdjectives'][cnt++] = thisNoun;
+			});
+		}
+	}
+
 })();
 
 var populateInfoContent = (function(){
 
-	var html = '<h1>Shout</h1><p>Totally random audience suggestions can help push the improvisers skills during rehearsals. I built this little web app to keep you supplied with fresh inputs, while maintaining the flow of the session. You could also use this if the audience seem to be suggesting ideas influenced by what has gone before. Enjoy! Martin Joiner</p>';
+	var html = '';
 	var cnt = 0;
 
 	objData['keys'].forEach( function(thisKey){
@@ -104,7 +129,7 @@ var populateInfoContent = (function(){
 
 	});
 
-	$('.infoContent').html( html );
+	$('.infoContent #dynamicCont').html( html );
 
 })();
 
@@ -138,6 +163,12 @@ $('#btnGenerate').click( function(){
 		}
 
 	});
+
+	if( $('#adjNoun').is(":checked") ){
+		rndNoun = getRandomInt(0, objData['arrNouns'].length-1);
+		rndAdj = getRandomInt(0, objData['arrAdjectives'].length-1);
+		html += '<div class="suggestion">' + objData['arrAdjectives'][rndAdj] + ' ' + objData['arrNouns'][rndNoun] + '</div>';
+	}
 	
 	$('#result').html( html ).attr('class',cssClass);
 	$('#infoCurtain').removeClass('expanded');
