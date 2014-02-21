@@ -11,6 +11,13 @@ body{
 	padding: 0;
 }
 
+a{
+	color: inherit;
+}
+a:hover{
+	color: #222;
+}
+
 .option{
 	margin: 10px 0 0 0;
 	width: 33.3%;
@@ -109,7 +116,10 @@ p{
 	text-align: center;
 	overflow: auto;
 	opacity: 1;
-	transition: opacity .2s;
+
+	-webkit-transition: opacity .2s;
+	   -moz-transition: opacity .2s;
+			transition: opacity .2s;
 }
 
 #result.invisible{
@@ -257,7 +267,7 @@ p{
 	background: -ms-linear-gradient(top,  #cb60b3 0%,#ad1283 50%,#de47ac 100%);
 	background: linear-gradient(to bottom,  #cb60b3 0%,#ad1283 50%,#de47ac 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cb60b3', endColorstr='#de47ac',GradientType=0 );
-
+	color: #ffd3f3;
 }
 
 /* Red */
@@ -270,7 +280,7 @@ p{
 	background: -ms-linear-gradient(top,  #a90329 0%,#8f0222 44%,#6d0019 100%);
 	background: linear-gradient(to bottom,  #a90329 0%,#8f0222 44%,#6d0019 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 );
-
+	color: white;
 }
 
 /* Soft Blue */
