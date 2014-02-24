@@ -9,6 +9,8 @@ body{
 	font-family: 'Archivo Black', sans-serif;
 	margin: 0;
 	padding: 0;
+	width: 100%;
+	overflow: hidden;
 }
 
 a{
@@ -19,16 +21,13 @@ a:hover{
 }
 
 .option{
-	margin: 10px 0 0 0;
-	width: 33.3%;
-	max-width: 200px;
-	height: 70px;
-	float: left;
+	width: 70px;
+	height: 60px;
 }
 
 .option input[type=checkbox]{
-	width: 40px;
-	height: 40px;
+	width: 30px;
+	height: 30px;
 	display: block;
 	margin: 0 auto;
 }
@@ -36,29 +35,36 @@ a:hover{
 .option label{
 	float: left;
 	clear: left;
-	width: 100%;
+	width: 70px;
 	text-align: center;
 	font-size: 0.9em;
 	text-shadow: 0 -1px 0 rgba(255,255,255,0.4);
 	color: #333;
 }
 
-h1, #btnGenerate, #result{
+h1, #btnGenerate, .suggestion{
 	font-family: 'Bangers', cursive;
 }
 
-.info, #infoCurtain, #result, .optionsWrap, .options, .buttonWrap, #btnGenerate{
+.info, #infoCurtain, #resultColour, #resultScroll, .optionsWrap, .boxLining, .buttonWrap, #btnGenerate{
 	position: absolute;
 	display: block;
-	width: 100%;
-	left: 0;
 }
 
 .info{
+	width: 36%;
+	left: 36%;
+	top: 83%;
+	height: 5%;
+	
+	-webkit-transition: width .2s, left .2s;
+	   -moz-transition: width .2s, left .2s;
+			transition: width .2s, left .2s;
+}
+
+.invisible .info{
 	width: 50%;
 	left: 50%;
-	top: 62%;
-	height: 5%;
 }
 
 .logo{
@@ -68,23 +74,32 @@ h1, #btnGenerate, #result{
 	left: -30px;
 	opacity: 0.7;
 	bottom: 0;
-	z-index: 100;
+	z-index: 200;
+
+	-webkit-transition: opacity .2s;
+	   -moz-transition: opacity .2s;
+			transition: opacity .2s;
+}
+
+.invisible .logo{
+	opacity: 1;
 }
 
 #infoCurtain{
 	top: 0;
 	bottom: 0;
-	height: 0%;
+	width: 0%;
 	overflow: auto;
 	background-color: #FFF;
+	z-index: 180;
 
-	-webkit-transition: height .2s;
-	   -moz-transition: height .2s;
-			transition: height .2s;
+	-webkit-transition: width .2s;
+	   -moz-transition: width .2s;
+			transition: width .2s;
 }
 
 #infoCurtain.expanded{
-	height: 67%;
+	width: 100%;
 }
 
 #infoCurtain .infoContent{
@@ -106,23 +121,56 @@ p{
 	margin: 0 0 1em 0;
 }
 
-#result{
+#resultColour, .optionsWrap, .boxLining, #infoCurtain{
+	height: 88%;
+}
+
+#resultColour{
+	top: 0;
+	width: 100%;
+	left: 0;
+	line-height: 1.6em;
+	text-align: center;
+	opacity: 1;
+}
+
+#resultScroll{
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 67%;
-	font-size: 4.2em;
-	line-height: 1.6em;
-	text-align: center;
+	height: 88%;
+	z-index: 130;
 	overflow: auto;
 	opacity: 1;
-
+	
 	-webkit-transition: opacity .2s;
 	   -moz-transition: opacity .2s;
 			transition: opacity .2s;
 }
 
-#result.invisible{
+.invisible #resultScroll{
+	opacity: 0;
+}
+
+#tblResult{
+	width: 100%;
+	margin-bottom: 50px;
+	border-collapse: collapse;
+}
+
+.suggestion{
+	padding-left: 20px;
+	overflow: hidden;
+	font-size: 3em;
+}
+
+#resultColour{
+	-webkit-transition: opacity .2s;
+	   -moz-transition: opacity .2s;
+			transition: opacity .2s;
+}
+
+.invisible #resultColour, .invisible #resultScroll{
 	opacity: 0;
 }
 
@@ -144,16 +192,17 @@ p{
 }
 
 .optionsWrap{
-	top: 67%;
-	height: 21%;
-	box-shadow: inset 0 1px 3px rgba(255,255,255,0.4);
-	border-top: 1px solid #888;
+	top: 0;
+	right: 0;
+	width: 90px;
+	box-shadow: inset 0 1px 3px rgba(255,255,255,0.4), -1px 0 1px rgba(0,0,0,0.3);
+
 }
 
-.options{
-	top: 68%;
-	height: 20%;
-	width: 100%;
+.boxLining{
+	top: 0;
+	width: 86px;
+	right: 0;
 	box-shadow: inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(0,0,0,0.2);
 	border-bottom: 2px solid rgba(255,255,255,0.3);
 	background: -webkit-linear-gradient(45deg, #CCC 0%, #CCC 48%, #AAA 48%, #AAA 52%, #CCC 52%, #CCC 100%);
@@ -165,7 +214,7 @@ p{
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
 			box-sizing: border-box;
-	overflow: auto;
+
 }
 
 .buttonWrap{
@@ -195,7 +244,8 @@ p{
 
 	width: 92%;
 	margin: 0 auto;
-	font-size: 3.8em;
+	font-size: 3em;
+	letter-spacing: 1px;
 	height: 10%;
 	line-height: 1em;
 }
@@ -208,7 +258,7 @@ p{
 
 /* -------------------------- */
 
-.unemotional{
+#resultColour.unemotional{
 	background: #f5f6f6;
 	background: -moz-linear-gradient(top,  #f5f6f6 0%, #dbdce2 21%, #b8bac6 49%, #dddfe3 80%, #f5f6f6 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f6f6), color-stop(21%,#dbdce2), color-stop(49%,#b8bac6), color-stop(80%,#dddfe3), color-stop(100%,#f5f6f6));
@@ -217,11 +267,14 @@ p{
 	background: -ms-linear-gradient(top,  #f5f6f6 0%,#dbdce2 21%,#b8bac6 49%,#dddfe3 80%,#f5f6f6 100%);
 	background: linear-gradient(top,  #f5f6f6 0%,#dbdce2 21%,#b8bac6 49%,#dddfe3 80%,#f5f6f6 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f6f6', endColorstr='#f5f6f6',GradientType=0 );
+}
+
+#tblResult.unemotional{
 	color: #333;
 }
 
 /* Orange */
-.positiveandlively{
+#resultColour.positiveandlively{
 	background: #f9c667;
 	background: -moz-linear-gradient(top,  #f9c667 0%, #f79621 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9c667), color-stop(100%,#f79621));
@@ -233,7 +286,7 @@ p{
 }
 
 /* Soft pink */
-.caring, .quietpositive{
+#resultColour.caring, #resultColour.quietpositive{
 	background: #febbbb;
 	background: -moz-linear-gradient(top,  #febbbb 0%, #fe9090 45%, #ff5c5c 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#febbbb), color-stop(45%,#fe9090), color-stop(100%,#ff5c5c));
@@ -242,11 +295,14 @@ p{
 	background: -ms-linear-gradient(top,  #febbbb 0%,#fe9090 45%,#ff5c5c 100%);
 	background: linear-gradient(to bottom,  #febbbb 0%,#fe9090 45%,#ff5c5c 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#febbbb', endColorstr='#ff5c5c',GradientType=0 );
+}
+
+#tblResult.caring, #tblResult.quietpositive{
 	color: #2b0000;
 }
 
 /* Greyey blue */
-.negativethoughts{
+#resultColour.negativethoughts{
 	background: #a7cfdf;
 	background: -moz-linear-gradient(top,  #a7cfdf 0%, #23538a 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a7cfdf), color-stop(100%,#23538a));
@@ -255,10 +311,13 @@ p{
 	background: -ms-linear-gradient(top,  #a7cfdf 0%,#23538a 100%);
 	background: linear-gradient(to bottom,  #a7cfdf 0%,#23538a 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', endColorstr='#23538a',GradientType=0 );
+}
+
+#tblResult.negativethoughts{
 	color: white;
 }
 
-.reactive{
+#resultColour.reactive{
 	background: #cb60b3;
 	background: -moz-linear-gradient(top,  #cb60b3 0%, #ad1283 50%, #de47ac 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cb60b3), color-stop(50%,#ad1283), color-stop(100%,#de47ac));
@@ -267,11 +326,14 @@ p{
 	background: -ms-linear-gradient(top,  #cb60b3 0%,#ad1283 50%,#de47ac 100%);
 	background: linear-gradient(to bottom,  #cb60b3 0%,#ad1283 50%,#de47ac 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cb60b3', endColorstr='#de47ac',GradientType=0 );
+}
+
+#tblResult.reactive{
 	color: #ffd3f3;
 }
 
 /* Red */
-.agitation, .negativeandforceful{
+#resultColour.agitation, #resultColour.negativeandforceful{
 	background: #a90329;
 	background: -moz-linear-gradient(top,  #a90329 0%, #8f0222 44%, #6d0019 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a90329), color-stop(44%,#8f0222), color-stop(100%,#6d0019));
@@ -280,11 +342,14 @@ p{
 	background: -ms-linear-gradient(top,  #a90329 0%,#8f0222 44%,#6d0019 100%);
 	background: linear-gradient(to bottom,  #a90329 0%,#8f0222 44%,#6d0019 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 );
+}
+
+#tblResult.agitation, #tblResult.negativeandforceful{
 	color: white;
 }
 
 /* Soft Blue */
-.positivethoughts{
+#resultColour.positivethoughts{
 	background: #a9e4f7;
 	background: -moz-linear-gradient(top,  #a9e4f7 0%, #0fb4e7 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a9e4f7), color-stop(100%,#0fb4e7));
@@ -296,7 +361,7 @@ p{
 }
 
 /* Grey */
-.negativeandpassive{
+#resultColour.negativeandpassive{
 	background: #7d7e7d;
 	background: -moz-linear-gradient(top,  #7d7e7d 0%, #0e0e0e 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7d7e7d), color-stop(100%,#0e0e0e));
@@ -305,11 +370,14 @@ p{
 	background: -ms-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%);
 	background: linear-gradient(to bottom,  #7d7e7d 0%,#0e0e0e 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 );
+}
+
+#tblResult.negativeandpassive{
 	color: #DDD;
 }
 
 /* Green */
-.negativeandnotincontrol{
+#resultColour.negativeandnotincontrol{
 	background: #f8ffe8;
 	background: -moz-linear-gradient(top,  #f8ffe8 0%, #e3f5ab 33%, #b7df2d 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8ffe8), color-stop(33%,#e3f5ab), color-stop(100%,#b7df2d));
@@ -318,6 +386,8 @@ p{
 	background: -ms-linear-gradient(top,  #f8ffe8 0%,#e3f5ab 33%,#b7df2d 100%);
 	background: linear-gradient(to bottom,  #f8ffe8 0%,#e3f5ab 33%,#b7df2d 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8ffe8', endColorstr='#b7df2d',GradientType=0 );
-	color: #414F10;
 }
 
+#tblResult.negativeandnotincontrol{
+	color: #414F10;
+}

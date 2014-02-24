@@ -85,7 +85,7 @@ objData['arrVerb'] 			= 	[ 	'Judging','Navigating','Peeling','Digging','Polishin
 									'Suggesting','Willing','Belonging','Continuing','Dressing','Kicking','Moving','Raising','Seeing','Suiting','Winning','Breaking',
 									'Reaching','Wishing','Building','Controlling','Knocking','Needing','Reading','Selling','Sunning','Sending','Supposign','Working',
 									'Supporting','Wondering','Burning','Cooking','Dropping','Giving','Knowing','Noticing','Realising','Copying','Eating','Going','Lasting',
-									'Obtaining','Receiving','Separating','Surviving','Worry about','call','correct','enable','grow','Laughing at','occur','Recognising',
+									'Obtaining','Receiving','Separating','Surviving','Worrying','Calling','Correcting','Enabling','Growing','Laughing','Occuring','Recognising',
 									'Costing','Encouraging','Handling','Offering','Recording','Talking','Writing','Waking','Missing','Buying'
 								];
 
@@ -184,20 +184,21 @@ $('#btnGenerate').click( function(){
 	var cssClass = 'unemotional'
 	var intRand = 0;
 
+	$('.suggestion').html( html );
+
 	objData['keys'].forEach( function(thisKey){
 
 		if( $( '#' + thisKey ).is(":checked") ){
 			intRand = getRandomInt(0, objData[ 'arr' + thisKey ].length-1);
 			var thisThing = objData[ 'arr' + thisKey ][intRand];
 
-			html += '<div class="suggestion">';
 			if( typeof thisThing === 'object' ){
 				cssClass = thisThing['class'];
-				html += thisThing['name'];
+				html = thisThing['name'];
 			} else {
-				html += thisThing;
+				html = thisThing;
 			}
-			html += '</div>';
+			$('#rslt' + thisKey).html( html );
 		}
 
 	});
@@ -205,10 +206,11 @@ $('#btnGenerate').click( function(){
 	if( $('#adjNoun').is(":checked") ){
 		var rndNoun = getRandomInt(0, objData['arrNouns'].length-1);
 		var rndAdj = getRandomInt(0, objData['arrAdjectives'].length-1);
-		html += '<div class="suggestion">' + objData['arrAdjectives'][rndAdj] + ' ' + objData['arrNouns'][rndNoun] + '</div>';
+		 $('#rsltadjNoun').html( objData['arrAdjectives'][rndAdj] + ' ' + objData['arrNouns'][rndNoun] );
 	}
 	
-	$('#result').html( html ).attr('class',cssClass);
+	$('#resultColour').attr('class',cssClass);
+	$('#tblResult').attr('class',cssClass);
 	curtainUp();
 });
 
@@ -222,13 +224,11 @@ $('.logo').click( function(){
 
 function curtainUp(){
 	$('#infoCurtain').removeClass('expanded');
-	$('#result').removeClass('invisible');
+	$('body').removeClass('invisible');
 }
 function curtainDown(){
 	$('#infoCurtain').addClass('expanded');
-	$('#result').addClass('invisible');
+	$('body').addClass('invisible');
 }
 
 $('#btnGenerate').click();
-
-

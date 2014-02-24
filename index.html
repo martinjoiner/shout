@@ -20,7 +20,23 @@
 </head>
 <body>
 	
-	<div id="result"></div>
+	<div id="resultColour">&nbsp;</div>
+
+	<div class="optionsWrap"></div>
+	<div class="boxLining"></div>
+	
+	<div id="resultScroll">	
+		<table id="tblResult">
+			<tr><td class="suggestion" id="rsltEmotion"></td><td class="option"><input type="checkbox" id="Emotion" checked><label for="Emotion">Emotion</label></td></tr>
+			<tr><td class="suggestion" id="rsltTensionLevel"></td><td class="option"><input type="checkbox" id="TensionLevel"><label for="TensionLevel">Tension Lvl</label></td></tr>
+			<tr><td class="suggestion" id="rsltGathering"></td><td class="option"><input type="checkbox" id="Gathering" checked><label for="Gathering">Gathering</label></td></tr>
+			<tr><td class="suggestion" id="rsltPlace"></td><td class="option"><input type="checkbox" id="Place" checked><label for="Place">Place</label></td></tr>
+			<tr><td class="suggestion" id="rsltAnimal"></td><td class="option"><input type="checkbox" id="Animal"><label for="Animal">Animal</label></td></tr>
+			<tr><td class="suggestion" id="rsltVerb"></td><td class="option"><input type="checkbox" id="Verb"><label for="Verb">Verb</label></td></tr>
+			<tr><td class="suggestion" id="rsltadjNoun"></td><td class="option"><input type="checkbox" id="adjNoun"><label for="adjNoun">Adj. + Noun</label></td></tr>
+		</table>
+	</div>
+	
 	<div class="info"><img class="logo" src="/images/ShoutLogo.png"></div>
 	<div id="infoCurtain">
 		<div class="infoContent">
@@ -40,16 +56,7 @@
 		</div>
 	</div>
 	
-	<div class="optionsWrap"></div>
-	<div class="options">
-		<div class="option"><input type="checkbox" id="Emotion" checked><label for="Emotion">Emotion</label></div>
-		<div class="option"><input type="checkbox" id="TensionLevel" checked><label for="TensionLevel">Tension Level</label></div>
-		<div class="option"><input type="checkbox" id="Gathering"><label for="Gathering">Gathering</label></div>
-		<div class="option"><input type="checkbox" id="Place"><label for="Place">Place</label></div>
-		<div class="option"><input type="checkbox" id="Animal"><label for="Animal">Animal</label></div>
-		<div class="option"><input type="checkbox" id="Verb"><label for="Verb">Verb</label></div>
-		<div class="option"><input type="checkbox" id="adjNoun"><label for="adjNoun">Adj. + Noun</label></div>
-	</div>
+
 	<div class="buttonWrap"></div>
 	<button id="btnGenerate">Shout</button>
 	
