@@ -43,7 +43,7 @@ var arrEmoCats =[
 ];
 
 var objData = {};
-objData['keys'] = [ 'Emotion', 'TensionLevel', 'Gathering', 'Place', 'Verb' ];
+objData['keys'] = [ 'Emotion','TensionLevel','Gathering','Place','Animal','Verb' ];
 
 objData['arrEmotion'] 		= [];
 
@@ -63,7 +63,7 @@ objData['arrPlace'] 		= 	[ 	'A & E','Airport','Beach','Bus Stop','Butchers','Cal
 									'Train Station', 'University','Zoo'
 								];
 
-// Present tense doing words that can come immediately before a noun, synonyms removed (such as supplying and providing)
+// Present tense verbs
 objData['arrVerb'] 			= 	[ 	'Judging','Navigating','Peeling','Digging','Polishing','Craving','Operating','Procrastinating','Involving','Voting','Hitting','Cleaning',
 									'Accepting','Enjoying','Leading','Opening','Reducing','Teaching','Carrying','Counting','Examining','Forming','Keeping','Repeating',
 									'Hating','Learning','Ordering','Shaking','Catching','Covering','Leaving','Outing','Reflecting','Mimicking','Flying','Intending','Serving',
@@ -94,6 +94,13 @@ objData['arrLifeChanger'] 	= 	[ 	'Admitting a mistake', 'Appearing on TV', 'Buyi
 									'Gender reassignment', 'Getting published', 'Graduating', 'Hostage situation', 'Leaving home', 'Meeting a hero', 'New job', 'New school', 
 									'New pet', 'New skill', 'Pregnancy test result', 'Quitting a job', 'Retirement', 'Receiving award', 'Rekindling relationship', 'Helping a stranger',
 									'Sporting achievement', 'Surviving a natural disaster', 'Saving a life', 'Settling a long-term feud', 'Trip abroad'  
+								];
+
+// Animals that characters can be based on
+objData['arrAnimal'] 		= 	[ 	'Alligator','Ape','Badger','Bear','Beaver','Bee','Butterfly','Camel','Cat','Chimp','Coyote','Crab','Crow','Dinosaur','Handbag Dog','Terrier Dog',
+									'Bull Dog','Large Dog','Duck','Exotic Bird','Elephant','Giraffe','Fish','Fox','Panda','Gorilla','Hippopotamus','Horse','Hummingbird','Kangaroo','Koala',
+									'Leopard','Lion','Meerkat','Mosquito','Octopus','Ox','Rabbit','Rhinoceros','Shark','Snake','Spider','Squirrel','Swan','Ram','Turkey',
+									'Turtle','Pig','Vulture' 
 								];
 
 
