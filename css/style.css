@@ -10,7 +10,6 @@ body{
 	margin: 0;
 	padding: 0;
 	width: 100%;
-	overflow: hidden;
 }
 
 a{
@@ -122,6 +121,10 @@ p{
 }
 
 #resultColour, .optionsWrap, .boxLining, #infoCurtain{
+	height: 88.5%;
+}
+
+#infoCurtain{
 	height: 88%;
 }
 
@@ -218,8 +221,11 @@ p{
 }
 
 .buttonWrap{
+	width: 100%;
 	top: 88%;
 	height: 12%;
+	
+	box-shadow: 0 -1px 1px rgba(0,0,0,0.3)
 }
 
 #btnGenerate{
