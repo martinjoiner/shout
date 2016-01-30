@@ -104,7 +104,30 @@ objData['arrAnimal'] 		= 	[ 	'Alligator','Ape','Badger','Bear','Beaver','Bee','B
 								];
 
 
-var populateCompleteListArrays = (function(){
+/**
+ * Global parameter, an array of letters from a to z
+ *
+ * @type {array}
+ */
+alphabet = [];
+
+
+/**
+ * Populate alphabet array
+ */
+(function(){
+	// Iterate over character codes 97 - 122 (a-z) creating an entry for each
+	for (var cc = 97; cc <= 122; cc++) {
+		alphabet.push( String.fromCharCode(cc) )
+	}
+})();
+
+
+/** 
+ * Initialising function to populate the complete list arrays
+ */
+(function(){
+
 	var cnt = 0;
 	arrEmoCats.forEach( function(thisCat){
 		thisCat.arrEmotions.forEach( function(thisEmotion){
@@ -117,31 +140,38 @@ var populateCompleteListArrays = (function(){
 
 	cnt = 0;
 	objData['arrNouns'] = [];
-	for (var cc = 97; cc <= 122; cc++) {
-		thisArr = noun[ String.fromCharCode(cc) ];
+
+	// Iterate over alphabet from a to z
+	alphabet.forEach( function(thisChar){
+		var thisArr = noun[ thisChar ];
 		if( typeof thisArr != 'undefined' ){
-			//console.log(noun[ thisChar ]);
 			thisArr.forEach( function(thisNoun){
 				objData['arrNouns'][cnt++] = thisNoun;
 			});
 		}
-	}
+	});
 
 	cnt = 0;
 	objData['arrAdjectives'] = [];
-	for (var cc = 97; cc <= 122; cc++) {
-		thisArr = adj[ String.fromCharCode(cc) ];
+
+	// Iterate over alphabet from a to z
+	alphabet.forEach( function(thisChar){
+		var thisArr = adj[ thisChar ];
 		if( typeof thisArr != 'undefined' ){
 			//console.log(noun[ thisChar ]);
 			thisArr.forEach( function(thisNoun){
 				objData['arrAdjectives'][cnt++] = thisNoun;
 			});
 		}
-	}
+	});
 
 })();
 
-var populateInfoContent = (function(){
+
+/** 
+ * Populate the info content element with a load of text lists
+ */
+(function(){
 
 	var html = '';
 	var cnt = 0;
@@ -171,6 +201,8 @@ var populateInfoContent = (function(){
 
 })();
 
+
+
 /**
  * Returns a random integer between min and max
  * Using Math.round() will give you a non-uniform distribution!
@@ -179,6 +211,11 @@ function getRandomInt (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+
+/**
+ * The money-shot for the whole app!
+ * When the user hits the "Shout" button
+ */
 $('#btnGenerate').click( function(){
 	var html = '';
 	var cssClass = 'unemotional'
@@ -186,6 +223,7 @@ $('#btnGenerate').click( function(){
 
 	$('.suggestion').html( html );
 
+	// Iterate over all the collections of suggestions
 	objData['keys'].forEach( function(thisKey){
 
 		if( $( '#' + thisKey ).is(":checked") ){
@@ -214,6 +252,11 @@ $('#btnGenerate').click( function(){
 	curtainUp();
 });
 
+
+
+/**
+ * When the shout logo (bottom center) is clicked, show or hide the infoCutain
+ */
 $('.logo').click( function(){
 	if( $('#infoCurtain').hasClass('expanded') ){
 		curtainUp();
@@ -226,6 +269,7 @@ function curtainUp(){
 	$('#infoCurtain').removeClass('expanded');
 	$('body').removeClass('invisible');
 }
+
 function curtainDown(){
 	$('#infoCurtain').addClass('expanded');
 	$('body').addClass('invisible');
