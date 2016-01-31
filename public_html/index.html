@@ -27,13 +27,18 @@
 	
 	<div id="resultScroll">	
 		<table id="tblResult">
-			<tr><td class="suggestion" id="rsltEmotion"></td><td class="option"><input type="checkbox" id="Emotion" checked><label for="Emotion">Emotion</label></td></tr>
-			<tr><td class="suggestion" id="rsltTensionLevel"></td><td class="option"><input type="checkbox" id="TensionLevel"><label for="TensionLevel">Tension Lvl</label></td></tr>
-			<tr><td class="suggestion" id="rsltGathering"></td><td class="option"><input type="checkbox" id="Gathering" checked><label for="Gathering">Gathering</label></td></tr>
-			<tr><td class="suggestion" id="rsltPlace"></td><td class="option"><input type="checkbox" id="Place" checked><label for="Place">Place</label></td></tr>
-			<tr><td class="suggestion" id="rsltAnimal"></td><td class="option"><input type="checkbox" id="Animal"><label for="Animal">Animal</label></td></tr>
-			<tr><td class="suggestion" id="rsltVerb"></td><td class="option"><input type="checkbox" id="Verb"><label for="Verb">Verb</label></td></tr>
-			<tr><td class="suggestion" id="rsltadjNoun"></td><td class="option"><input type="checkbox" id="adjNoun"><label for="adjNoun">Adj. + Noun</label></td></tr>
+			<tbody>
+				<!-- 
+					Example of a row that will be dynamically created
+					<tr>
+						<td class="suggestion" id="rsltEmotion"></td>
+						<td class="option">
+							<input type="checkbox" id="Emotion" checked>
+							<label for="Emotion">Emotion</label>
+						</td>
+					</tr>
+				-->
+			</tbody>
 		</table>
 	</div>
 	
@@ -48,10 +53,8 @@
 				suggesting ideas influenced by what has gone before. Enjoy! <strong>Martin Joiner</strong> <a target="_blank" href="https://twitter.com/MartinJoiner">@MartinJoiner</a>
 			</p>
 			<span id="dynamicCont"></span>
-			<h2>Adjective + Noun</h2>
 			<p>
-				An adjective and a noun are randomly chosen from a list of 1134 and 980 respectively resulting in the potential to create over 1.1 million combinations. Try getting an 
-				audience to achieve <em>that</em> level of lateral thinking!
+				Try getting an audience to achieve <em>that</em> level of lateral thinking!
 			</p>
 		</div>
 	</div>
@@ -61,8 +64,7 @@
 	<button id="btnGenerate">Shout</button>
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-	<script src="/js/adj.js"></script>
-	<script src="/js/nouns.js"></script>
 	<script src="/js/shout.js"></script>
+	<script src="/js/nouns.js"></script>
 </body>
 </html>
