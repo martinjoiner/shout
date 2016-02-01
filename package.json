@@ -1,0 +1,29 @@
+{
+  "name": "Shout",
+  "version": "1.0.0",
+  "description": "Shout (web app) ===============",
+  "main": "public_html/index.html",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-concat": "^2.6.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/martinjoiner/shout.git"
+  },
+  "keywords": [
+    "audience",
+    "suggestions",
+    "generator"
+  ],
+  "author": "Martin Joiner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/martinjoiner/shout/issues"
+  },
+  "homepage": "https://github.com/martinjoiner/shout"
+}
