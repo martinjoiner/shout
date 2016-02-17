@@ -29,10 +29,23 @@ Application.prototype.addSource = function( source ){
 
 
 	// Populate the info content element with a load of text lists
- 
 	var html = '<h2>All ' + source.name + 's</h2>';
 
-	html += '<p>' + source.getPossibilities() + ' possibilities</p>';
+	var skvPossibilities = source.getPossibilities();
+
+	html += '<p><strong>' + skvPossibilities.count.toLocaleString() + ' possibilities</strong>';
+	if( skvPossibilities.count > 9000 ){
+		html += ' (Try getting an audience to achieve <em>that</em> level of lateral thinking!)';
+	}
+	for( var i = 0, iLimit = skvPossibilities.items.length; i < iLimit; i++ ){
+		if( i === 0 ){
+			html += ': ';
+		} else {
+			html += ', ';
+		}
+		html += skvPossibilities.items[i];
+	}
+	html += '</p>';
 		
 	$('.infoContent #dynamicCont').append( html );
 
@@ -103,16 +116,6 @@ Section.prototype.getRandomItem = function(){
 }
 
 
-/** 
- * Method on Section class - Gets total number of possibilities
- *
- * @return {integer} Total number of possibilities
- */
-Section.prototype.getPossibilities = function(){
-	return this.items.length;
-}
-
-
 /**
  * Dictionary class has a name and 1 or more sections
  *
@@ -164,17 +167,18 @@ Dictionary.prototype.randomSuggestion = function(){
 
 
 /** 
- * Method on Dictionary class - Gets total number of possibilities
+ * Method on Dictionary class: Gets a count and all possibilities
  *
- * @return {integer} Total number of possibilities
+ * @return {array} Contains: 'count' and 'items'
  */
 Dictionary.prototype.getPossibilities = function(){
-	var count = 0;
-	// Iterate over all sections totalling up possibilities
+	var arrReturn = { 'count': 0, 'items': [] };
+	// Iterate over all sections building an array of all possibilities
 	for( var i = 0, iLimit = this.sections.length; i < iLimit; i++){
-		count += this.sections[i].getPossibilities();
+		arrReturn.items = arrReturn.items.concat( this.sections[i].items );
 	}
-	return count;
+	arrReturn.count = arrReturn.items.length;
+	return arrReturn;
 }
 
 
@@ -218,20 +222,22 @@ Joiner.prototype.randomSuggestion = function(){
 
 
 /** 
- * Method on Joiner class - Gets total number of possibilities
+ * Method on Joiner class: Gets a description of possibilities
  *
- * @return {string} Description of total number of possibilities
+ * @return {array} Contains: 'count' and 'items'
  */
 Joiner.prototype.getPossibilities = function(){
-	var countDescription = '';
+	var arrReturn = { 'count': 0, 'items': [] },
+		equation = '';
 	// Iterate over all dictionaries totalling up possibilities
 	for( var i = 0, iLimit = this.dictionaries.length; i < iLimit; i++){
 		if( i > 0 ){
-			countDescription += ' x ';
+			equation += ' * ';
 		}
-		countDescription += this.dictionaries[i].getPossibilities();
+		equation += this.dictionaries[i].getPossibilities().count;
 	}
-	return countDescription;
+	arrReturn.count = eval( equation );
+	return arrReturn;
 }
 
 

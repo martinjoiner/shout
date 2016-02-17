@@ -162,7 +162,7 @@ p{
 }
 
 .suggestion{
-	padding-left: 20px;
+	padding: 0 8px;
 	overflow: hidden;
 	font-size: 3em;
 }
