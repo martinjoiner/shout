@@ -1,37 +1,37 @@
 
-html, body{
+html, body {
 	height: 100%;
 	font-size: 12px;
 	color: #333;
 }
 
-body{
+body {
 	font-family: 'Archivo Black', sans-serif;
 	margin: 0;
 	padding: 0;
 	width: 100%;
 }
 
-a{
+a {
 	color: inherit;
 }
-a:hover{
+a:hover {
 	color: #222;
 }
 
-.option{
+.option {
 	width: 75px;
 	height: 60px;
 }
 
-.option input[type=checkbox]{
+.option input[type=checkbox] {
 	width: 30px;
 	height: 30px;
 	display: block;
 	margin: 0 auto;
 }
 
-.option label{
+.option label {
 	float: left;
 	clear: left;
 	width: 100%;
@@ -41,16 +41,25 @@ a:hover{
 	color: #333;
 }
 
-h1, #btnGenerate, .suggestion{
+h1, 
+#btnGenerate, 
+.suggestion {
 	font-family: 'Bangers', cursive;
 }
 
-.info, #infoCurtain, #resultColour, #resultScroll, .optionsWrap, .boxLining, .buttonWrap, #btnGenerate{
+.info, 
+#infoCurtain, 
+#resultColour, 
+#resultScroll, 
+.optionsWrap, 
+.boxLining, 
+.buttonWrap, 
+#btnGenerate {
 	position: absolute;
 	display: block;
 }
 
-.info{
+.info {
 	width: 36%;
 	left: 36%;
 	top: 83%;
@@ -61,12 +70,12 @@ h1, #btnGenerate, .suggestion{
 			transition: width .2s, left .2s;
 }
 
-.invisible .info{
+.invisible .info {
 	width: 50%;
 	left: 50%;
 }
 
-.logo{
+.logo {
 	position: absolute;
 	width: 60px;
 	height: 60px;
@@ -80,11 +89,11 @@ h1, #btnGenerate, .suggestion{
 			transition: opacity .2s;
 }
 
-.invisible .logo{
+.invisible .logo {
 	opacity: 1;
 }
 
-#infoCurtain{
+#infoCurtain {
 	top: 0;
 	bottom: 0;
 	width: 0%;
@@ -97,38 +106,41 @@ h1, #btnGenerate, .suggestion{
 			transition: width .2s;
 }
 
-#infoCurtain.expanded{
+#infoCurtain.expanded {
 	width: 100%;
 }
 
-#infoCurtain .infoContent{
+#infoCurtain .infoContent {
 	padding: 1em 1em 5em 1em;
 	line-height: 1.6em;
 }
 
-h1{
+h1 {
 	margin: .4em 0 .6em 0;
 	text-align: center;
 	font-size: 3em;
 }
 
-h2{
+h2 {
 	margin: 1em 0 0.2em;
 }
 
-p{
+p {
 	margin: 0 0 1em 0;
 }
 
-#resultColour, .optionsWrap, .boxLining, #infoCurtain{
+#resultColour, 
+.optionsWrap, 
+.boxLining, 
+#infoCurtain {
 	height: 88.5%;
 }
 
-#infoCurtain{
+#infoCurtain {
 	height: 88%;
 }
 
-#resultColour{
+#resultColour {
 	top: 0;
 	width: 100%;
 	left: 0;
@@ -137,7 +149,7 @@ p{
 	opacity: 1;
 }
 
-#resultScroll{
+#resultScroll {
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -151,33 +163,34 @@ p{
 			transition: opacity .2s;
 }
 
-.invisible #resultScroll{
+.invisible #resultScroll {
 	opacity: 0;
 }
 
-#tblResult{
+#tblResult {
 	width: 100%;
 	margin-bottom: 50px;
 	border-collapse: collapse;
 }
 
-.suggestion{
+.suggestion {
 	padding: 0 8px;
 	overflow: hidden;
 	font-size: 3em;
 }
 
-#resultColour{
+#resultColour {
 	-webkit-transition: opacity .2s;
 	   -moz-transition: opacity .2s;
 			transition: opacity .2s;
 }
 
-.invisible #resultColour, .invisible #resultScroll{
+.invisible #resultColour, 
+.invisible #resultScroll {
 	opacity: 0;
 }
 
-.optionsWrap, .buttonWrap{
+.optionsWrap, .buttonWrap {
 
 	background: #f5f6f6;
 	background: -moz-linear-gradient(top,  #f5f6f6 0%, #dbdce2 21%, #b8bac6 49%, #dddfe3 80%, #f5f6f6 100%);
@@ -194,7 +207,7 @@ p{
 
 }
 
-.optionsWrap{
+.optionsWrap {
 	top: 0;
 	right: 0;
 	width: 79px;
@@ -202,7 +215,7 @@ p{
 
 }
 
-.boxLining{
+.boxLining {
 	top: 0;
 	width: 75px;
 	right: 0;
@@ -220,7 +233,7 @@ p{
 
 }
 
-.buttonWrap{
+.buttonWrap {
 	width: 100%;
 	top: 88%;
 	height: 12%;
@@ -228,7 +241,7 @@ p{
 	box-shadow: 0 -1px 1px rgba(0,0,0,0.3)
 }
 
-#btnGenerate{
+#btnGenerate {
 
 	left: 4%;
 	top: 89%;
@@ -256,7 +269,7 @@ p{
 	line-height: 1em;
 }
 
-#btnGenerate:active{
+#btnGenerate:active {
 	box-shadow: inset 1px 1px 2px rgba(99,71,0,0.8);
 	line-height: 1.25em;
 }
@@ -264,7 +277,7 @@ p{
 
 /* -------------------------- */
 
-#resultColour.unemotional{
+#resultColour.unemotional {
 	background: #f5f6f6;
 	background: -moz-linear-gradient(top,  #f5f6f6 0%, #dbdce2 21%, #b8bac6 49%, #dddfe3 80%, #f5f6f6 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f6f6), color-stop(21%,#dbdce2), color-stop(49%,#b8bac6), color-stop(80%,#dddfe3), color-stop(100%,#f5f6f6));
@@ -275,12 +288,12 @@ p{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f6f6', endColorstr='#f5f6f6',GradientType=0 );
 }
 
-#tblResult.unemotional{
+#tblResult.unemotional {
 	color: #333;
 }
 
 /* Orange */
-#resultColour.positiveAndLively{
+#resultColour.positiveAndLively {
 	background: #f9c667;
 	background: -moz-linear-gradient(top,  #f9c667 0%, #f79621 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9c667), color-stop(100%,#f79621));
@@ -293,7 +306,7 @@ p{
 
 /* Soft pink */
 #resultColour.caring, 
-#resultColour.quietPositive{
+#resultColour.quietPositive {
 	background: #febbbb;
 	background: -moz-linear-gradient(top,  #febbbb 0%, #fe9090 45%, #ff5c5c 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#febbbb), color-stop(45%,#fe9090), color-stop(100%,#ff5c5c));
@@ -305,12 +318,12 @@ p{
 }
 
 #tblResult.caring, 
-#tblResult.quietPositive{
+#tblResult.quietPositive {
 	color: #2b0000;
 }
 
 /* Greyey blue */
-#resultColour.negativeThoughts{
+#resultColour.negativeThoughts {
 	background: #a7cfdf;
 	background: -moz-linear-gradient(top,  #a7cfdf 0%, #23538a 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a7cfdf), color-stop(100%,#23538a));
@@ -321,11 +334,11 @@ p{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', endColorstr='#23538a',GradientType=0 );
 }
 
-#tblResult.negativeThoughts{
+#tblResult.negativeThoughts {
 	color: white;
 }
 
-#resultColour.reactive{
+#resultColour.reactive {
 	background: #cb60b3;
 	background: -moz-linear-gradient(top,  #cb60b3 0%, #ad1283 50%, #de47ac 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cb60b3), color-stop(50%,#ad1283), color-stop(100%,#de47ac));
@@ -336,13 +349,13 @@ p{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cb60b3', endColorstr='#de47ac',GradientType=0 );
 }
 
-#tblResult.reactive{
+#tblResult.reactive {
 	color: #ffd3f3;
 }
 
 /* Red */
 #resultColour.agitation, 
-#resultColour.negativeAndForceful{
+#resultColour.negativeAndForceful {
 	background: #a90329;
 	background: -moz-linear-gradient(top,  #a90329 0%, #8f0222 44%, #6d0019 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a90329), color-stop(44%,#8f0222), color-stop(100%,#6d0019));
@@ -354,12 +367,12 @@ p{
 }
 
 #tblResult.agitation, 
-#tblResult.negativeAndForceful{
+#tblResult.negativeAndForceful {
 	color: white;
 }
 
 /* Soft Blue */
-#resultColour.positiveThoughts{
+#resultColour.positiveThoughts {
 	background: #a9e4f7;
 	background: -moz-linear-gradient(top,  #a9e4f7 0%, #0fb4e7 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a9e4f7), color-stop(100%,#0fb4e7));
@@ -371,7 +384,7 @@ p{
 }
 
 /* Grey */
-#resultColour.negativeAndPassive{
+#resultColour.negativeAndPassive {
 	background: #7d7e7d;
 	background: -moz-linear-gradient(top,  #7d7e7d 0%, #0e0e0e 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7d7e7d), color-stop(100%,#0e0e0e));
@@ -382,12 +395,12 @@ p{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 );
 }
 
-#tblResult.negativeAndPassive{
+#tblResult.negativeAndPassive {
 	color: #DDD;
 }
 
 /* Green */
-#resultColour.negativeAndNotInControl{
+#resultColour.negativeAndNotInControl {
 	background: #f8ffe8;
 	background: -moz-linear-gradient(top,  #f8ffe8 0%, #e3f5ab 33%, #b7df2d 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8ffe8), color-stop(33%,#e3f5ab), color-stop(100%,#b7df2d));
@@ -398,6 +411,6 @@ p{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8ffe8', endColorstr='#b7df2d',GradientType=0 );
 }
 
-#tblResult.negativeAndNotInControl{
+#tblResult.negativeAndNotInControl {
 	color: #414F10;
 }
